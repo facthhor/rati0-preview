@@ -1,9 +1,9 @@
 <p align="center"><img src="art/banner.svg" alt="rati0 — a local AI workplace, built around pi" width="100%"></p>
 
-**rati0** is a personal AI workplace in the making. It runs
-entirely on one machine: a desktop app wrapped around
+**rati0** is an AI workplace for your own machine, in the making. It runs
+entirely on one computer: a desktop app wrapped around
 [pi](https://www.npmjs.com/package/@earendil-works/pi-coding-agent), a
-local model, and an agent called **Deliner** that lives there. This
+local model, and an agent that lives there. You give the agent its name. This
 repository holds only the idea and some pictures. The code and the app
 become public with the beta.
 
@@ -23,7 +23,7 @@ of its own.
   moves) is a pi extension. The app is the window, the memory and the
   furniture.
 - **Projects first, chat second.** A project is a folder with a board. It
-  starts with a *phase 0* where Deliner learns what the project is and
+  starts with a *phase 0* where the agent learns what the project is and
   writes the plan. Every session after that builds on the plan.
 - **Local by default.** The model runs on the same laptop. Nothing leaves
   the machine unless you let it.
@@ -64,14 +64,14 @@ It comes in seven colorways:
 
 ## Where it's going
 
-- **1.0, the alpha:** the core above, tested on a real second project.
-- **lessons:** the codebase gets reshaped into clean modules.
-- **1.5:** the current feature list, finished.
-- **2.0:** an auto mode where the agent works through its board with a
-  supervisor watching, web search behind a strict gate, new models, and a
+- **Alpha:** the core above, tested on real projects.
+- **Reshape:** the codebase gets reshaped into clean modules.
+- **Features:** the current feature list, finished.
+- **Autopilot:** an auto mode where the agent works through its board with
+  a supervisor watching, web search behind a strict gate, new models, and a
   new UI.
-- **2.5:** image, video and audio generation.
-- **3.0, the beta:** Windows, macOS and Linux. **The code and the app go
+- **Creation:** image, video and audio generation.
+- **Beta:** Windows, macOS and Linux. **The code and the app go
   public here.**
 
 The percentage above is an estimate of the way to the beta. It gets
