@@ -1,11 +1,16 @@
-<p align="center"><img src="art/banner.svg" alt="rati0 — a local AI workplace, built around pi" width="100%"></p>
+<p align="center"><img src="art/banner.svg" alt="rati0 — the harness made for local AI" width="100%"></p>
 
-**rati0** is an AI workplace for your own machine, in the making. It runs
-entirely on one computer: a desktop app wrapped around
+**rati0** is the harness made for local AI, in the making. Every big
+harness is built around a cloud API, and many of them are better than rati0
+in plenty of ways. rati0 is built around the computer on your desk
+instead. It was built and tested on one laptop, by local models, for local
+models, and most of what it does exists so that a small model does real
+work in tight memory. API access exists, but it isn't the focus.
+
+It's a desktop app wrapped around
 [pi](https://www.npmjs.com/package/@earendil-works/pi-coding-agent), a
-local model, and an agent that lives there. You give the agent its name. This
-repository holds only the idea and some pictures. The code and the app
-become public with the beta.
+local model, and an agent you give a name. This repository holds only the
+idea and some pictures. The code and the app become public with the beta.
 
 <p align="center"><img src="art/progress.svg" alt="36% of the way to the public beta" width="100%"></p>
 
@@ -14,30 +19,51 @@ become public with the beta.
 
 ## The idea
 
-Most AI apps are a chat box in front of someone else's computer. rati0 is
-the opposite: a workplace on your own machine, where the agent has a room
-of its own.
-
-- **pi at the centre.** rati0 doesn't write its own agent. Every session is
-  a pi process, and everything that decides (permissions, tools, model
-  moves) is a pi extension. The app is the window, the memory and the
-  furniture.
+- **Local first.** rati0 is for the model you own, not one you rent. The
+  model runs on the same machine, and nothing leaves it unless you let it.
+- **Made for small models in tight memory.** Contexts are saved and never
+  read twice, new chats start hot, every token counts, and the model never
+  fights a build for the RAM.
+- **A tool, not a companion.** The agent knows your machine and your
+  projects, plans them on a board, and helps you design, create and code.
+  It doesn't talk for the sake of talking. Everything it does is there to
+  get your projects and your day done.
 - **Projects first, chat second.** A project is a folder with a board. It
   starts with a *phase 0* where the agent learns what the project is and
   writes the plan. Every session after that builds on the plan.
-- **Local by default.** The model runs on the same laptop. Nothing leaves
-  the machine unless you let it.
-- **Measured, not assumed.** Every rule in the code was measured on real
-  hardware, and a context that's already been read is never paid for twice.
+- **Built on pi.** rati0 doesn't write its own agent. Every session is a
+  real pi agent, and everything that decides (permissions, tools, model
+  moves) is a pi extension. rati0 is the harness around it: memory,
+  boards, safety and the interface.
+- **rati0 builds rati0.** Most of rati0 is written by its developer's own
+  agent, running inside rati0. When the code goes public, anyone can write
+  an extension or push an improvement, and their agent can code it for
+  them.
 
-## Things it does
+## Small models, tight memory
 
+These are the parts that make a laptop model do real work. The numbers are
+from the dev machine (a Ryzen AI Max+ 395 with 32 GB, llama.cpp, a 27B
+model).
+
+- **Hot starts.** A new chat begins from a pre-baked head (tools, prompt,
+  memory, the project's documents). The first reply comes in 7 s instead of
+  157.
 - **Contexts that survive.** Switching away saves a conversation's model
   state to disk, and coming back restores it in seconds instead of
   re-reading it for half an hour. The sidebar shows which chats are live,
   saved or cold.
-- **Hot starts.** A new chat begins from a pre-baked head (tools, prompt,
-  memory, the project's documents), so the first reply comes in seconds.
+- **Every token counts.** A head is read once and reused, a saved context
+  is never read again, and the model gets the plan and memory up front
+  instead of searching for them.
+- **model_yield.** Before a build, the model saves its context and
+  unloads. The build gets the RAM to itself, then the model reloads and
+  restores.
+- **RAM in check.** The shell's memory cap follows what is really free, and
+  when you're away the model saves and unloads.
+
+## Things it does
+
 - **Boards as plans.** Every project folder has a plan drawn as a board,
   with owners, progress marks and the sessions that worked on each card.
 - **A safety net.** The agent's shell runs in a sandbox with no network by
@@ -47,8 +73,9 @@ of its own.
   browser to work in, and asks before anything could send data out.
 - **Senses.** Vision on every model, and listening through a small speech
   model.
-- **Presence.** The app knows whether you're at the desk, studying or away,
-  and behaves accordingly. There's a study tree that grows with the hours.
+- **Made to be yours.** Seven colorways, and the app knows whether you're
+  at the desk, studying or away and behaves accordingly. There's a study
+  tree that grows with the hours.
 
 ## The look
 
@@ -70,9 +97,10 @@ It comes in seven colorways:
 - **Autopilot:** an auto mode where the agent works through its board with
   a supervisor watching, web search behind a strict gate, new models, and a
   new UI.
-- **Creation:** image, video and audio generation.
+- **The intelligence hub:** image, video and audio generation and design
+  abilities, all local and sized to your machine.
 - **Beta:** Windows, macOS and Linux. **The code and the app go
-  public here.**
+  public here**, open to extensions and pull requests.
 
 The percentage above is an estimate of the way to the beta. It gets
 updated as the work lands.
